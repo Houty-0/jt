@@ -34,7 +34,7 @@
 	        <tr>
 	            <td>条形码:</td>
 	            <td>
-	                <input class="easyui-textbox" type="text" name="barcode" data-options="validType:'length[1,30]'" />
+	                <input class="easyui-numberbox" type="text" name="barcode" data-options="validType:'length[1,30]'" />
 	            </td>
 	        </tr>
 	        <tr>
@@ -99,7 +99,7 @@
 		paramJson = JSON.stringify(paramJson);
 		
 		$("#itemeEditForm [name=itemParams]").val(paramJson);
-		alert($("#itemeEditForm").serialize());
+		//alert($("#itemeEditForm").serialize());
 		$.post("/item/update",$("#itemeEditForm").serialize(), function(data){
 			if(data.status == 200){
 				$.messager.alert('提示','修改商品成功!','info',function(){

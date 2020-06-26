@@ -33,7 +33,7 @@
 	        <tr>
 	            <td>条形码:</td>
 	            <td>
-	                <input class="easyui-textbox" type="text" name="barcode" data-options="validType:'length[1,30]'" />
+	                <input class="easyui-numberbox" type="text" name="barcode" data-options="validType:'length[6,30]'" />
 	            </td>
 	        </tr>
 	        <tr>
@@ -74,6 +74,7 @@
 	});
 	
 	function submitForm(){
+		debugger
 		//表单校验
 		if(!$('#itemAddForm').form('validate')){
 			$.messager.alert('提示','表单还未填写完成!');
