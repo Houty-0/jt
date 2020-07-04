@@ -67,10 +67,11 @@
         </dependency>
 
         <!--支持热部署 -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
+            <scope>runtime</scope>
+        </dependency>-->
 
         <!--引入数据库驱动 -->
         <dependency>

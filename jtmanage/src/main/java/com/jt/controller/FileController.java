@@ -1,5 +1,8 @@
 package com.jt.controller;
 
+import com.jt.service.interfaces.FileService;
+import com.jt.vo.EasyUIImage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -9,6 +12,9 @@ import java.io.IOException;
 
 @RestController
 public class FileController {
+
+    @Autowired
+    private FileService fileService;
 
     /**
      * 知识点:
@@ -26,7 +32,7 @@ public class FileController {
         //1.获取图片的名称
         String name = fileImage.getOriginalFilename();
         //2.准备文件上传路径  D:xxxx
-        File dirFile = new File("E:\\JT_IMAGE");
+        File dirFile = new File("F:\\JT_IMAGE");
         //2.1判断文件是否存在
         if(!dirFile.exists()) {
             //如果文件不存在的话,则创建目录.
