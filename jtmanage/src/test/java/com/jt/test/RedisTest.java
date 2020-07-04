@@ -80,6 +80,7 @@ public class RedisTest {
     //实现原子性操作
     @Test
     public void test05() throws InterruptedException {
+
         //要么同时成功,要么同时失败.
         jedis.setex("1910", 40, "测试原子性");
         System.out.println(jedis.ttl("1910"));
