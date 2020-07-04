@@ -43,4 +43,17 @@ public class FileController {
         fileImage.transferTo(new File(filePath));
         return "调用成功!!!!!";
     }
+
+
+
+    /**
+     * url:http://localhost:8091/pic/upload?dir=image 图片JS生效
+     *   参数:uploadFile
+     *   返回值: EasyUIImage VO对象
+     */
+    @RequestMapping("/pic/upload")
+    public EasyUIImage uploadFile(MultipartFile uploadFile) {
+
+        return fileService.uploadFile(uploadFile);
+    }
 }
