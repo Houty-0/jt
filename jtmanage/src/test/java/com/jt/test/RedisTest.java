@@ -6,6 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.params.SetParams;
 
+import java.util.List;
+import java.util.Map;
+
 @SpringBootTest
 public class RedisTest {
 
@@ -105,5 +108,34 @@ public class RedisTest {
         //满足赋值和超时的原子性操作.
         jedis.set("1910", "String类型终极测试33333322", params);
         System.out.println(jedis.get("1910"));
+    }
+
+    /**
+     * 操作hash数据类型,保存对象的数据.
+     * 说明:如果有一类数据需要redis保存时,可以使用hash.
+     * userId,username,addr
+     */
+    @Test
+    public void testHash() {
+        jedis.hset("person", "id", "101");
+        jedis.hset("person", "name", "小甜甜");
+        jedis.hset("person", "age", "80");
+        System.out.println("person-Id" + jedis.hget("person","id"));
+        Map<String,String> personMap = jedis.hgetAll("person");
+        System.out.println(personMap);
+    }
+
+    /**
+     * 	测试redis的队列操作.
+     * 	需求将队列当做栈.
+     */
+    @Test
+    public void testList() {
+
+        jedis.lpush("list2", "1","2","3","4");
+        System.out.println(jedis.lpop("list")); //5
+
+        List<String> list= jedis.lrange("list2", 0, -1);
+        System.out.println("获取参数:"+list);
     }
 }

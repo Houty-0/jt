@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jt.annotation.CacheFind;
 import com.jt.mapper.ItemCatMapper;
 import com.jt.mapper.ItemDescMapper;
 import com.jt.mapper.ItemMapper;
@@ -45,18 +46,10 @@ public class ItemServiceImpl implements ItemService {
 		//查询分页信息
 		List<Item> itemList = resultPage.getRecords();
 		if(!CollectionUtils.isEmpty(itemList)){
-			for (Item item:itemList){
-				if(item.getCid()!=null){
-					ItemCat itemCat = itemCatMapper.selectById(item.getCid());
-					if(itemCat!=null){
-						item.setCatName(itemCat.getName());
-					}
 
-				}
-			}
+			return new EasyUITable(total, itemList);
 		}
-
-		return new EasyUITable(total, itemList);
+		return null;
 	}
 
 	@Transactional    //控制事务

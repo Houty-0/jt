@@ -10,4 +10,7 @@ public interface ItemCatService {
 
     //根据parentId查询子级叶子类目信息
     List<EasyUITree> findItemCatListByParentId(Long parentId);
+
+    //根据缓存查询数据.
+    List<EasyUITree> findItemCatByCache(Long parentId);
 }

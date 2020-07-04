@@ -2,6 +2,7 @@ package com.jt.controller;
 
 import com.jt.pojo.Item;
 import com.jt.pojo.ItemDesc;
+import com.jt.service.interfaces.ItemCatService;
 import com.jt.service.interfaces.ItemService;
 import com.jt.vo.EasyUITable;
 import com.jt.vo.SysResult;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 
 //实现商品的业务逻辑
@@ -19,11 +22,22 @@ public class ItemController {
 	@Autowired
 	private ItemService itemService;
 
+	@Autowired
+	private ItemCatService itemCatService;
+
 
 	@RequestMapping("/query")   //?page=1&rows=20 get请求
 	public EasyUITable findItemByPage(Integer page, Integer rows) {
-
-		return itemService.findItemByPage(page,rows);
+		EasyUITable uiTable = itemService.findItemByPage(page, rows);
+		List<Item> uiTableRows = uiTable.getRows();
+		for (Item item:uiTableRows) {
+			if(item.getCid()!=null){
+				String itemCatName = itemCatService.findItemCatService(item.getCid());
+				item.setCatName(itemCatName);
+			}
+		}
+		uiTable.setRows(uiTableRows);
+		return uiTable;
 	}
 
 
