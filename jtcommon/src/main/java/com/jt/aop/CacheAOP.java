@@ -8,9 +8,12 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.ShardedJedis;
 
 @Slf4j
 @Component
@@ -37,8 +40,18 @@ public class CacheAOP {
      * 		将目标方法的返回值 转化为JSON串,保存到redis中.
      * 		2.2 有数据      动态获取缓存数据之后利用工具API转化为真实的对象.
      */
+//    @Autowired
+//    private Jedis jedis;      //单台
+
+//    @Autowired
+//    private ShardedJedis jedis;     //分片
+
+//    @Autowired //1.按照类型进行注入   2.按照名称匹配
+//    @Qualifier("sentinelJedis") //指定bean的名称进行注入
+//    private Jedis jedis;       //从哨兵中获取的jedis       哨兵
+
     @Autowired
-    private Jedis jedis;
+    private JedisCluster jedis;     //集群
 
     @Around("@annotation(cacheFind)")
     public Object around(ProceedingJoinPoint joinPoint, CacheFind cacheFind) {

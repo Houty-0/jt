@@ -4,8 +4,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisShardInfo;
+import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.params.SetParams;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -137,5 +140,20 @@ public class RedisTest {
 
         List<String> list= jedis.lrange("list2", 0, -1);
         System.out.println("获取参数:"+list);
+    }
+
+    /**
+     * 每个redis中保存的数据 一定不相同.
+     * 数据如何存储的?
+     */
+    @Test
+    public void testShards() {
+        List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>();
+        shards.add(new JedisShardInfo("192.168.113.128",6379));
+        shards.add(new JedisShardInfo("192.168.113.128",6380));
+        shards.add(new JedisShardInfo("192.168.113.128",6381));
+        ShardedJedis shardedJedis = new ShardedJedis(shards);
+        shardedJedis.set("OOO","OOO-Test!!!!");
+        System.out.println(shardedJedis.get("1910"));
     }
 }

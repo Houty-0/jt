@@ -22,7 +22,7 @@ public class ItemCatServiceImpl implements ItemCatService {
     @Autowired
     private ItemCatMapper itemCatMapper;
 
-    @Autowired
+    //@Autowired
     private Jedis jedis;//注入redisAPI对象
 
 
