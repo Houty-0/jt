@@ -12,6 +12,7 @@
         <module>jtcommon</module>
         <module>jtmanage</module>
         <module>jtweb</module>
+        <module>jtsso</module>
     </modules>
 
 
