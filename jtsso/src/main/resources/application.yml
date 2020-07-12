@@ -23,3 +23,15 @@ mybatis-plus:
 logging:
   level:
     com.jt.mapper: debug
+
+#springBoot导入dubbo
+dubbo:
+  scan:         #让dubbo注解起作用  @Service
+    basePackages: com.jt
+  application:
+    name: provider-user #定义提供者的名称 不同的服务名称不同
+  registry:
+    address: zookeeper://192.168.113.128:2181?backup=192.168.113.128:2182,192.168.113.128:2183
+  protocol: #rpc调用  指定协议规则
+    name: dubbo   #引入dubbo协议,dubbo内部默认实现
+    port: 20880   #每一个服务都应该有个各自对应的端口
