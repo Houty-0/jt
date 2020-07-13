@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jt.iml" filepath="$PROJECT_DIR$/jt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jtcart/jtcart.iml" filepath="$PROJECT_DIR$/jtcart/jtcart.iml" />
       <module fileurl="file://$PROJECT_DIR$/jtcommon/jtcommon.iml" filepath="$PROJECT_DIR$/jtcommon/jtcommon.iml" />
       <module fileurl="file://$PROJECT_DIR$/jtmanage/jtmanage.iml" filepath="$PROJECT_DIR$/jtmanage/jtmanage.iml" />
       <module fileurl="file://$PROJECT_DIR$/jtsso/jtsso.iml" filepath="$PROJECT_DIR$/jtsso/jtsso.iml" />

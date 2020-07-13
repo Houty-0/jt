@@ -13,6 +13,7 @@
         <module>jtmanage</module>
         <module>jtweb</module>
         <module>jtsso</module>
+        <module>jtcart</module>
     </modules>
 
 
