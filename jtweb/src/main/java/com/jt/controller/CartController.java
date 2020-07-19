@@ -75,8 +75,7 @@ public class CartController {
     @RequestMapping("/delete/{itemId}")
     public String deleteCart(Cart cart) {
 
-        //Long userId = ThreadLocalUtil.getUser().getId();
-        Long userId = 7L;
+        Long userId = ThreadLocalUtil.getUser().getId();
         cart.setUserId(userId);
         cartService.deleteCart(cart);
         return "redirect:/cart/show.html";

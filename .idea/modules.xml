@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/jtcart/jtcart.iml" filepath="$PROJECT_DIR$/jtcart/jtcart.iml" />
       <module fileurl="file://$PROJECT_DIR$/jtcommon/jtcommon.iml" filepath="$PROJECT_DIR$/jtcommon/jtcommon.iml" />
       <module fileurl="file://$PROJECT_DIR$/jtmanage/jtmanage.iml" filepath="$PROJECT_DIR$/jtmanage/jtmanage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jtorder/jtorder.iml" filepath="$PROJECT_DIR$/jtorder/jtorder.iml" />
       <module fileurl="file://$PROJECT_DIR$/jtsso/jtsso.iml" filepath="$PROJECT_DIR$/jtsso/jtsso.iml" />
       <module fileurl="file://$PROJECT_DIR$/jtweb/jtweb.iml" filepath="$PROJECT_DIR$/jtweb/jtweb.iml" />
     </modules>

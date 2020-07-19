@@ -10,6 +10,7 @@
         <module name="jtcart" />
         <module name="jtcommon" />
         <module name="jtmanage" />
+        <module name="jtorder" />
         <module name="jtsso" />
         <module name="jtweb" />
       </profile>
@@ -19,6 +20,7 @@
       <module name="jtcart" target="1.8" />
       <module name="jtcommon" target="1.8" />
       <module name="jtmanage" target="1.8" />
+      <module name="jtorder" target="1.8" />
       <module name="jtsso" target="1.8" />
       <module name="jtweb" target="1.8" />
     </bytecodeTargetLevel>
@@ -28,6 +30,7 @@
       <module name="jtcart" options="-parameters" />
       <module name="jtcommon" options="-parameters" />
       <module name="jtmanage" options="-parameters" />
+      <module name="jtorder" options="-parameters" />
       <module name="jtsso" options="-parameters" />
       <module name="jtweb" options="-parameters" />
     </option>

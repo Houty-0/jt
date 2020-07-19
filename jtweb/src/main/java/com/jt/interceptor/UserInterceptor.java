@@ -71,4 +71,13 @@ public class UserInterceptor implements HandlerInterceptor {
         return false;
     }
 
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+            throws Exception {
+
+        //删除threadLocal中的数据,防止内存泄漏
+        ThreadLocalUtil.remove();
+    }
+
 }
